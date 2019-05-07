@@ -1,4 +1,4 @@
-# vuetodo
+# Todolist Client
 
 ## Project setup
 ```
@@ -27,3 +27,12 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
+# Todolist Server
+```
+cd server
+npm install
+node index.js
+```

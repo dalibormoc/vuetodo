@@ -1,28 +1,51 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <q-layout class="layout">
+      <q-layout-header>
+        <todo-list-header></todo-list-header>
+      </q-layout-header>
+      <q-page-container>
+        <todo-list/>
+        <q-page-sticky position="bottom-right" :offset="[25, 25]">
+          <q-btn @click="createNewTodo" round size="lg" color="primary" icon="add"/>
+        </q-page-sticky>
+      </q-page-container>
+    </q-layout>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TodoListHeader from "./components/TodoListHeader";
+import TodoList from "./components/TodoList";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    TodoListHeader,
+    TodoList
+  },
+  created() {
+    this.$store.dispatch("getTodos");
+  },
+  methods: {
+    createNewTodo() {
+      this.$store.dispatch("openModalNew");
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.layout {
+  max-width: 600px;
+  margin: auto;
 }
 </style>

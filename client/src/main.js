@@ -4,10 +4,10 @@ import App from "./App.vue";
 import store from "./store/todos";
 
 import "./styles/quasar.styl";
-import "quasar-framework/dist/quasar.ie.polyfills";
-import "quasar-extras/animate";
+import "./node_modules/quasar-framework/dist/quasar.ie.polyfills";
+import "./node_modules/quasar-extras/animate";
 import "quasar-extras/material-icons";
-import Quasar from "quasar";
+import Quasar from "./node_modules/quasar";
 import Vuelidate from "vuelidate";
 
 Vue.use(Vuelidate);
